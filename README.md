@@ -1,74 +1,76 @@
-🚀 Web Performans ve Yükleme Süresi Ölçüm Aracı
+# 🚀 Web Performans ve Yükleme Süresi Ölçüm Aracı
 
-Bu proje, Python ve Selenium WebDriver kullanarak belirlenen web sitelerinin sayfa yüklenme sürelerini (Page Load Time) otomatik olarak ölçen, analiz eden ve sonuçları CSV formatında raporlayan bir test otomasyon aracıdır.
+Bu proje, **Python** ve **Selenium WebDriver** kullanarak belirlenen web sitelerinin sayfa yüklenme sürelerini (Page Load Time) otomatik olarak ölçen, analiz eden ve sonuçları CSV formatında raporlayan bir test otomasyon aracıdır.
 
-📋 Proje Hakkında
+## 📋 Proje Hakkında
 
-Bu araç, tarayıcıların window.performance API'sini kullanarak yükleme sürelerini milisaniye hassasiyetinde ölçer. Yazılım test ve doğrulama süreçlerinde performans metriklerini toplamak amacıyla geliştirilmiştir.
+Bu araç, web tarayıcılarının `window.performance` API'sini kullanarak hassas ölçümler yapar. Özellikle yazılım test ve doğrulama süreçlerinde performans metriklerini toplamak amacıyla geliştirilmiştir.
 
-Program şu adımları takip eder:
+Program şu adımları izler:
+1. Belirlenen web sitelerini (Udemy, Harunider, Github, Kitapyurdu, Google, StackOverflow) ziyaret eder.
+2. Her site için **10 kez** tekrar test yapar.
+3. Her yükleme için süreyi hesaplar.
+4. Elde edilen verilerin **Ortalama**, **En Düşük (Min)** ve **En Yüksek (Max)** değerlerini hesaplar.
+5. Tüm ham verileri ve istatistikleri `sonuclar.csv` dosyasına kaydeder.
 
-Belirlenen web sitelerini ziyaret eder (Udemy, Harunider, GitHub, Kitapyurdu, Google, StackOverflow vb.).
+## ⚙️ Kullanılan Teknoloji ve Algoritma
 
-Her site için 10 kez tekrar test yapar.
+Proje, yükleme süresini hesaplamak için aşağıdaki W3C Navigation Timing standardını kullanır:
 
-Her tekrar için yükleme süresini hesaplar.
+**Yükleme Süresi = domComplete - navigationStart**
 
-Tüm verilerin Ortalama, En Düşük (Min) ve En Yüksek (Max) değerlerini çıkarır.
+* **navigationStart:** Tarayıcının kaynağı yüklemeye başladığı zaman damgası.
+* **domComplete:** Sayfanın ve tüm alt kaynakların (resimler, scriptler vb.) yüklenmesinin bittiği zaman damgası.
 
-Tüm sonuçları sonuclar.csv dosyasına kaydeder.
+## 🛠️ Kurulum
 
-⚙️ Kullanılan Teknoloji ve Algoritma
+Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin.
 
-Proje, sayfanın yüklenme süresini aşağıdaki W3C Navigation Timing standardına göre hesaplar:
+### Gereksinimler
+* Python 3.x
+* Google Chrome Tarayıcısı
+* ChromeDriver (Selenium tarafından otomatik yönetilir)
 
-Yükleme Süresi = domComplete – navigationStart
+### Kütüphanelerin Yüklenmesi
+Gerekli olan `selenium` kütüphanesini yüklemek için terminalde şu komutu çalıştırın:
 
-
-navigationStart: Tarayıcının hedef kaynağı yüklemeye başladığı an.
-
-domComplete: Sayfadaki tüm içeriklerin (HTML, img, script, CSS) yüklenmesinin tamamlandığı an.
-
-🛠️ Kurulum
-
-Projeyi kendi bilgisayarınızda çalıştırmak için şu adımları izleyin.
-
-📌 Gereksinimler
-
-Python 3.x
-
-Google Chrome Tarayıcısı
-
-Selenium WebDriver
-
-📦 Kütüphanelerin Yüklenmesi
-
-Aşağıdaki komutu terminalde çalıştırarak Selenium'u yükleyin:
-
+```bash
 pip install selenium
+```
 
-▶️ Kullanım
+## ▶️ Kullanım
 
-Proje klasörüne girin ve programı başlatın:
+Terminal veya komut satırında proje dizinine geldikten sonra programı çalıştırın:
 
+```bash
 python performans_testi.py
+```
 
+Program çalışırken otomatik bir Chrome penceresi açılacak ve test işlemleri başlayacaktır. Test tamamlandığında pencere kapanır ve rapor oluşturulur.
 
-Program çalıştığında otomatik olarak Chrome açılır ve test işlemleri başlar. Testler tamamlanınca tarayıcı kapanır ve sonuclar.csv dosyası oluşturulur.
+## 📊 Çıktı Örneği (CSV)
 
-📊 Örnek CSV Çıktısı
-Web Sitesi, Deneme No, Yükleme Süresi (ms)
-https://www.google.com, 1, 1240
-https://www.google.com, 2, 1150
-...
-https://www.google.com İSTATİSTİK, Ortalama, 1195.00
+Program çalışmayı bitirdiğinde oluşturulan `sonuclar.csv` dosyası şu formatta olacaktır:
 
-📁 Dosya Yapısı
-Dosya	Açıklama
-performans_testi.py	Ana test senaryosu ve yükleme süresi ölçümleri
-sonuclar.csv	Test tamamlandıktan sonra oluşturulan sonuç dosyası
-README.md	Proje dökümantasyonu
-👤 Yazar
+| Web Sitesi | Deneme No | Yükleme Süresi (ms) |
+|------------|-----------|---------------------|
+| https://www.google.com | 1 | 1240 |
+| https://www.google.com | 2 | 1150 |
+| ... | ... | ... |
+| https://www.google.com İSTATİSTİK | Ortalama | 1195.00 |
+| https://www.google.com İSTATİSTİK | Minimum | 1100.00 |
+| https://www.google.com İSTATİSTİK | Maksimum | 1300.00 |
 
-Geliştirici: Harunİder10
-Ders: Yazılım Test ve Doğrulama
+Bu dosyayı Excel, Google Sheets gibi e-tablo programlarına aktararak daha detaylı analizler yapabilirsiniz.
+
+## 📂 Dosya Yapısı
+
+- `performans_testi.py` - Ana kaynak kod ve test senaryosu
+- `sonuclar.csv` - Test bittikten sonra oluşan veri dosyası
+- `README.md` - Proje dökümantasyonu
+
+## 👤 Yazar
+
+**Geliştirici:** HarunIder10  
+**Ders:** Yazılım Test ve Doğrulama  
+**GitHub:** [HarunIder10](https://github.com/HarunIder10)
