@@ -35,3 +35,36 @@ Gerekli olan `selenium` kütüphanesini yüklemek için terminalde şu komutu ç
 
 ```bash
 pip install selenium
+
+▶️ Kullanım
+Terminal veya komut satırında proje dizinine geldikten sonra programı çalıştırın:
+
+Bash
+
+python performans_testi.py
+Program çalışırken otomatik bir Chrome penceresi açılacak ve test işlemleri başlayacaktır. Test tamamlandığında pencere kapanır ve rapor oluşturulur.
+
+📊 Çıktı Örneği (CSV)
+Program çalışmayı bitirdiğinde oluşturulan sonuclar.csv dosyası şu formatta olacaktır:
+
+Web Sitesi	Deneme No	Yükleme Süresi (ms)
+https://www.python.org	1	1240
+https://www.python.org	2	1150
+...	...	...
+https://www.python.org İSTATİSTİK	Ortalama	1195.00
+
+E-Tablolar'a aktar
+
+📂 Dosya Yapısı
+performans_testi.py: Ana kaynak kod ve test senaryosu.
+
+sonuclar.csv: Test bittikten sonra oluşan veri dosyası.
+
+README.md: Proje dökümantasyonu.
+
+👤 Yazar
+Geliştirici: [HarunIder10]
+
+Ders: Yazılım Test ve Doğrulama
+
+
