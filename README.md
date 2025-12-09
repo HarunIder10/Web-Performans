@@ -7,8 +7,8 @@ Bu proje, **Python** ve **Selenium WebDriver** kullanarak belirlenen web siteler
 Bu araç, web tarayıcılarının `window.performance` API'sini kullanarak hassas ölçümler yapar. Özellikle yazılım test ve doğrulama süreçlerinde performans metriklerini toplamak amacıyla geliştirilmiştir.
 
 Program şu adımları izler:
-1. Belirlenen 5 farklı web sitesini (Udemy, Harunider, Github, Kitapyurdu, Google, StackOverflow) ziyaret eder.
-2. Her site için **10 kez** tekrar test yapar (Toplam 50 ölçüm).
+1. Belirlenen web sitelerini (Udemy, Harunider, Github, Kitapyurdu, Google, StackOverflow) ziyaret eder.
+2. Her site için **10 kez** tekrar test yapar.
 3. Her yükleme için süreyi hesaplar.
 4. Elde edilen verilerin **Ortalama**, **En Düşük (Min)** ve **En Yüksek (Max)** değerlerini hesaplar.
 5. Tüm ham verileri ve istatistikleri `sonuclar.csv` dosyasına kaydeder.
@@ -39,8 +39,7 @@ pip install selenium
 ▶️ Kullanım
 Terminal veya komut satırında proje dizinine geldikten sonra programı çalıştırın:
 
-Bash
-
+```bash
 python performans_testi.py
 Program çalışırken otomatik bir Chrome penceresi açılacak ve test işlemleri başlayacaktır. Test tamamlandığında pencere kapanır ve rapor oluşturulur.
 
@@ -48,10 +47,10 @@ Program çalışırken otomatik bir Chrome penceresi açılacak ve test işlemle
 Program çalışmayı bitirdiğinde oluşturulan sonuclar.csv dosyası şu formatta olacaktır:
 
 Web Sitesi	Deneme No	Yükleme Süresi (ms)
-https://www.python.org	1	1240
-https://www.python.org	2	1150
+https://www.google.com	1	1240
+https://www.google.com	2	1150
 ...	...	...
-https://www.python.org İSTATİSTİK	Ortalama	1195.00
+https://www.google.com İSTATİSTİK	Ortalama	1195.00
 
 E-Tablolar'a aktar
 
@@ -66,5 +65,3 @@ README.md: Proje dökümantasyonu.
 Geliştirici: [HarunIder10]
 
 Ders: Yazılım Test ve Doğrulama
-
-
