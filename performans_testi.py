@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
 # 1. Test edilecek sitelerin listesi
+# Özelleştirilebilir kısım
 siteler = [
     "https://www.harunider.com.tr",
     "https://www.udemy.com",
